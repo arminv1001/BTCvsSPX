@@ -1,4 +1,3 @@
-from xmlrpc.client import Boolean
 import os
 from dateutil.relativedelta import relativedelta
 import time
@@ -13,7 +12,7 @@ class Oanda():
             self.setEnv(demo)
             self.API_URL,self.ACCESS_TOKEN,self.ACCOUNT_ID = self.readLoginData()
 
-        def setEnv(self,demo:Boolean):
+        def setEnv(self,demo:bool):
             """Set if live or demo account
 
             Args:
@@ -32,7 +31,8 @@ class Oanda():
                 loginData: Login data
             """
             dirname = os.path.dirname(__file__)
-            file = os.path.join(dirname, "./LoginData/" + self.env + ".txt")
+            file = os.path.join(dirname, "\\LoginData\\" + self.env + ".txt")
+            file = ".\\LoginData\\" + self.env + ".txt"
             loginData = []
             with open(file) as f:
                 contents = f.readlines()  # API_URL # ACCESS_TOKEN # ACCOUNT_ID
@@ -94,5 +94,5 @@ class Oanda():
             hist_df["Minute"] = hist_df.index.minute
             hist_df.reset_index(drop=True, inplace=True)
             return hist_df
-        
+
       

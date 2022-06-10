@@ -131,3 +131,4 @@ dmypy.json
 # Login Daten 
 LoginData/
 
+CreatingModels/train.h5
